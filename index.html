@@ -1,14 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/style.css">
     <title>Movie List</title>
 </head>
+
 <body>
-    
+    <header>
+        <div>
+            <h3>Film List
+                
+                <small></small>
+            </h3>
+        </div>
+    </header>
+
+
+    <div>
+        <form>
+            <div class="grid-container">
+                <div class="grid-x grid-padding-x">
+                    <div class="medium-3 cell">
+                        <label>Title:
+                            <input type="text" placeholder=".medium-6.cell">
+                            <hr> <br>
+                        </label>
+                    </div>
+                    <div class="medium-3 cell">
+                        <label>Director:
+                            <input type="text" placeholder=".medium-6.cell">
+                            <hr> <br>
+                        </label>
+                    </div>
+                    <div class="medium-3 cell">
+                        <label>Genre:
+                            <input type="text" placeholder=".medium-6.cell">
+                            <hr>
+                        </label>
+                    </div>
+                    <div class="medium-3 cell">
+                        <label>Release Date:
+                            <input type="text" placeholder=".medium-6.cell">
+                            <hr>
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <button id="submit-btn" class="submit success button">Add Film</button>
+                </div>
+                <hr>
+            </div>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th width="150">Title</th>
+                    <th width="150">Director</th>
+                    <th width="150">Genre</th>
+                    <th width="150">Release Date</th>
+                </tr>
+            </thead>
+            <!-- <tbody>
+              <tr>
+                <td>Content Goes Here</td>
+                <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
+                <td>Content Goes Here</td>
+                <td>Content Goes Here</td>
+              </tr>
+              <tr>
+                <td>Content Goes Here</td>
+                <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+                <td>Content Goes Here</td>
+                <td>Content Goes Here</td>
+              </tr>
+              <tr>
+                <td>Content Goes Here</td>
+                <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
+                <td>Content Goes Here</td>
+                <td>Content Goes Here</td>
+              </tr>
+            </tbody> -->
+        </table>
+    </div>
+
 </body>
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"
+    crossorigin="anonymous"></script>
 <script src="/assets/js/app.js"></script>
+
 </html>
