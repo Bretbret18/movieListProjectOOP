@@ -1,30 +1,46 @@
-// Create Movie constructor
-function Movie(title, director, genre) {
+// Movie Constructor
+function Movie(title, director, genre, releaseDate) {
     this.title = title;
     this.director = director;
     this.genre = genre;
+    this.releaseDate = releaseDate;
 };
 
-const movieOne = new Movie('Movie One', 'Director Directorson', 'Horror');
-const movieTwo = new Movie('Movie Two', 'Blah Blahman', 'Drama');
+// UI Constructor
+function UI() { }
 
-console.log(movieOne);
-console.log(movieOne.genre);
-console.log(movieTwo);
 
-// Create UI and Movie constructor
-// Create UI constructor
-// UI prototype functions needed:
+UI.prototype.addMovieToList = function (movie) {
+    const movieList = document.querySelector('#movie-list');
+    const row = document.createElement('tr');
 
-// Update Movie on List // ?? EXTRA
-// Delete Movie from List
-// Delete all Movies from List
-// // Save, Update, Delete Local Storage
-// Update to ES6 Classes
-
-// UI constructor
-function UI() {}
-// Add Movie to List
-UI.prototype.addMovieToList = function() {
-
+    // argument must be passed (even if its just console log)
+    // or page will auto refresh
+    console.log(movie);
 }
+
+// Event Listeners
+document.querySelector('#movie-form').addEventListener('submit',
+    function (e) {
+        console.log('submit');
+
+        const title = document.querySelector('#title').value,
+            director = document.querySelector('#director').value,
+            genre = document.querySelector('#genre').value,
+            releaseDate = document.querySelector('#releaseDate').value;
+
+        // // Instantiate movie (with values)
+        const movie = new Movie(title, director, genre, releaseDate);
+        // // Instantiate UI
+        const ui = new UI()
+        // // Call UI.addMovieToList(movie)
+        ui.addMovieToList(movie)
+
+
+        e.preventDefault()
+    });
+
+document.querySelector('#clearList-btn').addEventListener('click',
+    function (e) {
+        console.log('clear list');
+    })

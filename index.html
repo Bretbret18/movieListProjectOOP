@@ -8,91 +8,73 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
         crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <title>Movie List</title>
+    <header>
+        <title>Movie List</title>
+    </header>
 </head>
 
 <body>
-    <header>
-        <div>
-            <h3>Film List
-                
-                <small></small>
-            </h3>
-        </div>
-    </header>
 
-
-    <div>
-        <form>
+    <div class="grid-container">
+        <h3>Film List</h3>
+        <form id="movie-form">
             <div class="grid-container">
                 <div class="grid-x grid-padding-x">
-                    <div class="medium-3 cell">
-                        <label>Title:
-                            <input type="text" placeholder=".medium-6.cell">
-                            <hr> <br>
+                    <div class="medium-6 cell">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" placeholder=".medium-6.cell">
                         </label>
                     </div>
-                    <div class="medium-3 cell">
-                        <label>Director:
-                            <input type="text" placeholder=".medium-6.cell">
-                            <hr> <br>
+                    <div class="medium-6 cell">
+                        <label for="director">Director</label>
+                        <input type="text" id="director" placeholder=".medium-6.cell">
                         </label>
                     </div>
-                    <div class="medium-3 cell">
-                        <label>Genre:
-                            <input type="text" placeholder=".medium-6.cell">
-                            <hr>
+                    <div class="medium-6 cell">
+                        <label for="genre">Genre
+                            <select id="genre">
+                                <option value="action">Action</option>
+                                <option value="drama">Drama</option>
+                                <option value="comedy">Comedy</option>
+                                <option value="documentary">Documentary</option>
+                                <option value="other">Other</option>
+                            </select>
                         </label>
                     </div>
-                    <div class="medium-3 cell">
-                        <label>Release Date:
-                            <input type="text" placeholder=".medium-6.cell">
-                            <hr>
+                    <div class="medium-6 cell">
+                        <label for="releaseDate">Release Date</label>
+                        <input type="text" id="releaseDate" placeholder=".medium-6.cell">
                         </label>
                     </div>
                 </div>
-                <div>
-                    <button id="submit-btn" class="submit success button">Add Film</button>
-                </div>
-                <hr>
             </div>
-        </form>
+            <div class="flex-container">
+                <div class="flex-child-submit">
+                    <input type="submit" value="Submit" id="submit-btn" class="submit success button">
+                </div>
+                <div class="flex-child-clear"></div>
+                <button type="button" id="clearList-btn" class="alert button">Clear List</button>
+            </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th width="150">Title</th>
-                    <th width="150">Director</th>
-                    <th width="150">Genre</th>
-                    <th width="150">Release Date</th>
-                </tr>
-            </thead>
-            <!-- <tbody>
-              <tr>
-                <td>Content Goes Here</td>
-                <td>This is longer content Donec id elit non mi porta gravida at eget metus.</td>
-                <td>Content Goes Here</td>
-                <td>Content Goes Here</td>
-              </tr>
-              <tr>
-                <td>Content Goes Here</td>
-                <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-                <td>Content Goes Here</td>
-                <td>Content Goes Here</td>
-              </tr>
-              <tr>
-                <td>Content Goes Here</td>
-                <td>This is longer Content Goes Here Donec id elit non mi porta gravida at eget metus.</td>
-                <td>Content Goes Here</td>
-                <td>Content Goes Here</td>
-              </tr>
-            </tbody> -->
-        </table>
     </div>
-
+    </form>
+    </div>
+    <table id="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Director</th>
+                <th>Genre</th>
+                <th>Release Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="movie-list"></tbody>
+    </table>
+    </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"
-    crossorigin="anonymous"></script>
+
+
 <script src="/assets/js/app.js"></script>
 
 </html>

@@ -4,11 +4,33 @@ header {
     margin-left: 42%;
 }
 
-
-
 #submit-btn {
-    margin-top: 5%;
-    margin-left: 35%;
+   
     padding-left: 100px;
     padding-right: 100px;
 }
+
+#clearList-btn {
+
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.flex-container {
+    display: flex;
+    margin: 3% 0 3% 0;
+}
+
+.flex-child-submit {
+    flex: 1;
+
+}  
+
+.flex-child-clear {
+    flex: 2;
+ }
+
+/* .flex-child:first-child {
+    margin-right: 20px;
+}  */
+
