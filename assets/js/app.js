@@ -9,15 +9,45 @@ function Movie(title, director, genre, releaseDate) {
 // UI Constructor
 function UI() { }
 
+// Prototype methods needed:
+// add movie to list
+// delete movie from list
+// delete movie list
+// store info in local storage
+
 
 UI.prototype.addMovieToList = function (movie) {
     const movieList = document.querySelector('#movie-list');
     const row = document.createElement('tr');
+    row.innerHTML = `
+    <td>${movie.title}</td>
+    <td>${movie.director}</td>
+    <td>${movie.genre}</td>
+    <td>${movie.releaseDate}</td>
+    <td><a href="#" class="delete">X</a></td>`;
 
-    // argument must be passed (even if its just console log)
-    // or page will auto refresh
-    console.log(movie);
+    // append to list
+    movieList.appendChild(row)
+};
+
+UI.prototype.clearFields = function () {
+    document.querySelector('#title').value = '';
+    document.querySelector('#director').value = '';
+    document.querySelector('#genre').value = 'action';
+    document.querySelector('#releaseDate').value = '';
 }
+
+UI.prototype.removeRow = function () {
+    document.querySelector('#movie-list').lastElementChild.
+        lastElementChild.lastElementChild.addEventListener
+        ('click', function (e) {
+
+            document.querySelector('#movie-list').innerHTML = '';
+
+
+        });
+};
+
 
 // Event Listeners
 document.querySelector('#movie-form').addEventListener('submit',
@@ -29,13 +59,19 @@ document.querySelector('#movie-form').addEventListener('submit',
             genre = document.querySelector('#genre').value,
             releaseDate = document.querySelector('#releaseDate').value;
 
-        // // Instantiate movie (with values)
+            if(title == '' && director == '' && releaseDate == '') {
+               return null
+            }
+            
+
+        // // Instantiate Movie
         const movie = new Movie(title, director, genre, releaseDate);
         // // Instantiate UI
         const ui = new UI()
-        // // Call UI.addMovieToList(movie)
-        ui.addMovieToList(movie)
 
+        ui.addMovieToList(movie)
+        ui.clearFields()
+        ui.removeRow()
 
         e.preventDefault()
     });
