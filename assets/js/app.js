@@ -15,6 +15,8 @@ function UI() { }
 // delete movie list
 // store info in local storage
 
+console.log(document.querySelector('#movie-list'));
+
 
 UI.prototype.addMovieToList = function (movie) {
     const movieList = document.querySelector('#movie-list');
@@ -37,14 +39,13 @@ UI.prototype.clearFields = function () {
     document.querySelector('#releaseDate').value = '';
 }
 
-UI.prototype.removeRow = function () {
-    document.querySelector('#movie-list').lastElementChild.
-        lastElementChild.lastElementChild.addEventListener
-        ('click', function (e) {
+UI.prototype.removeMovie = function () {
+    document.querySelector('#movie-list')
+    .addEventListener('click', function (e) {
 
-            document.querySelector('#movie-list').innerHTML = '';
+        
 
-
+        e.preventDefault()
         });
 };
 
@@ -60,7 +61,8 @@ document.querySelector('#movie-form').addEventListener('submit',
             releaseDate = document.querySelector('#releaseDate').value;
 
             if(title == '' && director == '' && releaseDate == '') {
-               return null
+                e.preventDefault()
+               return null    
             }
             
 
@@ -71,12 +73,20 @@ document.querySelector('#movie-form').addEventListener('submit',
 
         ui.addMovieToList(movie)
         ui.clearFields()
-        ui.removeRow()
+        
 
         e.preventDefault()
     });
 
+    document.querySelector('#movie-list').addEventListener('click',
+    function(e) {
+        if(e.target.className === 'delete') {
+            e.target.parentElement.parentElement.remove()
+        }
+    })
+
 document.querySelector('#clearList-btn').addEventListener('click',
     function (e) {
+
         console.log('clear list');
     })
